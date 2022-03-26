@@ -4,7 +4,7 @@ import uuid
 import time
 
 root = sys.path[0]
-path_image = os.walk(root + "\\OEBPS\\Images")
+path_image = os.walk(root + "/OEBPS/Images")
 
 ############################### 输入元数据###############################
 isbn = input("输入ISBN:")
@@ -157,7 +157,7 @@ spine = gene_spine()
 ############################### 生成opf文件###############################
 u = uuid.uuid4()
 date = time.strftime("%Y-%m-%d"+"T"+"%H:%M:%S"+"Z")
-f=open(root + "/templates/manga_templates.opf",mode="r",encoding="utf-8")
+f=open(root + "/templates/OEBPS/manga.opf",mode="r",encoding="utf-8")
 content = f.read()
 keyword1 = "</manifest>"
 keyword2 = "</spine>"
