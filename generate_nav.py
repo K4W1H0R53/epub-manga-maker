@@ -5,7 +5,6 @@ root = sys.path[0]
 
 contents = []
 landmark = []
-count = 0   # 计数器
 
 with open(root+"\\contents.txt",'r',encoding='UTF-8-sig') as f:
     contents_table= f.read().splitlines()
