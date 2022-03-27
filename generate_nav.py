@@ -12,7 +12,7 @@ with open(root+"\\contents.txt",'r',encoding='UTF-8-sig') as f:
 for i in contents_table:
     print(i.split('|',1)[0])
 
-# command= input("是否含有目录/目录是否和封面在同一页(y/n):")
+command= input("是否含有目录/目录是否和封面在同一页(y/n):")
 # if command == "y":
 #     count=+1
 #     contents.append("表紙 && 目次")
