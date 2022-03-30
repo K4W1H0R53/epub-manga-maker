@@ -12,28 +12,44 @@ with open(root+"/templates/contents.txt",'r',encoding='UTF-8-sig') as f:
     for i in contents_table:
         a = i.split('|',2)[0]
         b = i.split('|',2)[1]
-        contents.append(a)
-        pages.append(b)
         if i.find("#") != -1:    ## 跳过星标行
-            print("跳过",i)
+            # print("跳过",i)
             continue
         if i.find("*") != -1:    ## 确认正文行
-            content = [a,b,"bodymatter"]
-            landmarks.append(content)
-            print ("生成landmarks标签:",content)
+            contents.append(a)
+            pages.append(b)
+            landmarks.append("bodymatter")
+            # print ("生成landmarks标签:",[a,b,"bodymatter"])
+            continue
         if i.find("cover") != -1:
-            content = [a,b,"cover"]
-            landmarks.append(content)
-            print ("生成landmarks标签:",content)
+            contents.append(a)
+            pages.append(b)           
+            landmarks.append("cover")
+            # print ("生成landmarks标签:",[a,b,"cover"])
+            continue
         if i.find("目次")!= -1:
-            content = [a,b,"toc"]
-            landmarks.append(content)
-            print ("生成landmarks标签:",content)
+            contents.append(a)
+            pages.append(b)
+            landmarks.append("toc")
+            # print ("生成landmarks标签:",[a,b,"toc"])
+            continue
         if i.find("奥付")!= -1:
-            content = [a,b,"colophon"]
-            print ("生成landmarks标签:",content)
-            landmarks.append(content)
+            contents.append(a)
+            pages.append(b)
+            # print ("生成landmarks标签:",[a,b,"colophon"])
+            landmarks.append("colophon")
+            continue
+        else:
+            contents.append(a)
+            pages.append(b)
+            landmarks.append("")
+            continue
 
-print("章节表：",contents)
-print("页数表：",pages)
-print("landmark表：",landmarks)
+zipped_list = zip(landmarks,pages,contents)
+total = list(zipped_list)
+f=open(root + "/templates/OEBPS/nav.xhtml",mode="r",encoding="utf-8")
+f = f.read()
+for x in total:
+    if len(x[0]) != 0:
+        c = '''<li><a epub:type="{0}" href="Text/{1}.xhtml">{2}</a></li>'''.format(x[0],x[1],x[2])
+        print(c)

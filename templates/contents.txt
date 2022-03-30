@@ -1,11 +1,11 @@
-cover|page
-表纸と目次|page
-表纸|page|#
-標題紙|page
-COLOR ILLUST|page
-目次|page|#
-正文|page|*
-あとがき|page
-奥付|page
-とらのあな特典|page
-メロンブックス特典|page
+cover|001
+表纸と目次|002
+表纸|003|#
+標題紙|004
+COLOR ILLUST|005
+目次|006|#
+正文|007|*
+あとがき|008
+奥付|009
+とらのあな特典|010
+メロンブックス特典|011
