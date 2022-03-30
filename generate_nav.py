@@ -43,13 +43,18 @@ with open(root+"/templates/contents.txt",'r',encoding='UTF-8-sig') as f:
             contents.append(a)
             pages.append(b)
             landmarks.append("")
-            continue
 
 zipped_list = zip(landmarks,pages,contents)
 total = list(zipped_list)
 f=open(root + "/templates/OEBPS/nav.xhtml",mode="r",encoding="utf-8")
 f = f.read()
+nav_list = []
+landmarks_list = []
 for x in total:
+    if x[2] == "cover":
+        continue
+    toc_element = '''<li><a href="Text/{0}.xhtml">{1}</a></li>'''.format(x[1],x[2])
+    nav_list.append(toc_element)
     if len(x[0]) != 0:
-        c = '''<li><a epub:type="{0}" href="Text/{1}.xhtml">{2}</a></li>'''.format(x[0],x[1],x[2])
-        print(c)
+        landmarks_element = '''<li><a epub:type="{0}" href="Text/{1}.xhtml">{2}</a></li>'''.format(x[0],x[1],x[2])
+        landmarks_list.append(landmarks_element)
