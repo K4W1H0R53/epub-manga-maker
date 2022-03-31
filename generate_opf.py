@@ -157,7 +157,7 @@ spine = gene_spine()
 ############################### 生成opf文件###############################
 u = uuid.uuid4()
 date = time.strftime("%Y-%m-%d"+"T"+"%H:%M:%S"+"Z")
-f=open(root + "/templates/OEBPS/manga_templates.opf",mode="r",encoding="utf-8")
+f=open(root + "/templates/manga_templates.opf",mode="r",encoding="utf-8")
 content = f.read()
 keyword1 = "</manifest>"
 keyword2 = "</spine>"
