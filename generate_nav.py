@@ -65,11 +65,11 @@ for a in toc_list:
     post = f.find("</ol>")
     f = f[:post] + a + "\r        "  + f[post:]
 
-
 for b in landmarks_list:
     post1 = f.find("</ol>")
     post2 = f.find("</ol>", post1+1)
     f = f[:post2] + b + "\r        "  + f[post2:]
+
 file = open(root + "/test.opf",mode="w",encoding="utf-8")
 file.write(f)
 
