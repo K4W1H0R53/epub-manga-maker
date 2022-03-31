@@ -7,7 +7,7 @@ contents = []   ## 用于储存章节名
 pages = []  ## 用于储存章节开始页文件名
 landmarks = []   ## 用于储存landmark
 
-with open(root+"/contents.txt",'r',encoding='UTF-8-sig') as f:
+with open("./contents.txt",'r',encoding='UTF-8-sig') as f:
     contents_table= f.read().splitlines()   ## 读取contents.txt文本文件，文本文件以"$章节名|$起始页文件名"的方式储存正文目录
     for i in contents_table:
         a = i.split('|',2)[0]
@@ -57,7 +57,7 @@ for x in total:
     toc_element = '''<li><a href="Text/{0}.xhtml">{1}</a></li>'''.format(x[1],x[2])
     toc_list.append(toc_element)
 
-f=open(root + "/templates/nav_templates.xhtml",mode="r",encoding="utf-8")
+f=open("./templates/nav_templates.xhtml",mode="r",encoding="utf-8")
 f = f.read()
 i = 1
 
@@ -69,5 +69,5 @@ for b in landmarks_list:
     post2 = f.find("</ol>", post1+1)
     f = f[:post2] + b + "\r        "  + f[post2:]
 
-file = open(root + "/temp/OEBPS/nav.xhtml",mode="w",encoding="utf-8")
+file = open("./temp/OEBPS/nav.xhtml",mode="w",encoding="utf-8")
 file.write(f)

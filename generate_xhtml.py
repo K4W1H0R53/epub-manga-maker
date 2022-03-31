@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 
 root = sys.path[0]
-path_image = os.walk(root + "/temp/OEBPS/Images")
+path_image = os.walk("./temp/OEBPS/Images")
 
 title = input("输入作品名:")
 
@@ -26,7 +26,7 @@ for path, dirs, files in path_image:
             </div>
             </body>
         </html>'''.format(src_width, src_height, file,title)
-        f = open(root + "/temp/OEBPS/Text/" + os.path.splitext(file)[0] + ".xhtml", mode="w", encoding="utf-8")
+        f = open("./temp/OEBPS/Text/" + os.path.splitext(file)[0] + ".xhtml", mode="w", encoding="utf-8")
         f.write(page_html)
         f.close()
         print("已生成",os.path.splitext(file)[0] + ".xhtml")
