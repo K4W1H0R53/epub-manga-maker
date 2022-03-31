@@ -57,19 +57,17 @@ for x in total:
     toc_element = '''<li><a href="Text/{0}.xhtml">{1}</a></li>'''.format(x[1],x[2])
     toc_list.append(toc_element)
 
-f=open(root + "/templates/OEBPS/nav.xhtml",mode="r",encoding="utf-8")
+f=open(root + "/templates/nav_templates.xhtml",mode="r",encoding="utf-8")
 f = f.read()
 i = 1
 
 for a in toc_list:
     post = f.find("</ol>")
     f = f[:post] + a + "\r        "  + f[post:]
-
 for b in landmarks_list:
     post1 = f.find("</ol>")
     post2 = f.find("</ol>", post1+1)
     f = f[:post2] + b + "\r        "  + f[post2:]
 
-file = open(root + "/test.opf",mode="w",encoding="utf-8")
+file = open(root + "/temp/OEBPS/nav.xhtml",mode="w",encoding="utf-8")
 file.write(f)
-

@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 
 root = sys.path[0]
-path_image = os.walk(root + "\\OEBPS\\Images")
+path_image = os.walk(root + "/temp/OEBPS/Images")
 
 title = input("输入作品名:")
 
