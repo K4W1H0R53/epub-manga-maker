@@ -3,8 +3,17 @@ import sys
 import uuid
 import time
 
-path_image = os.walk("./temp/OEBPS/Images")
 
+path_image = os.walk("./temp/OEBPS/Images")
+############################### 图片列表###############################
+filename_list = []
+extension_list = []
+for path, dir_list, file_list in path_image:
+    for index, file_name in enumerate(sorted(file_list)):
+        filename = os.path.splitext(file_name)[0]
+        extension = os.path.splitext(file_name)[1]
+        filename_list.append(filename)
+        extension_list.append(extension)
 ############################### 输入元数据###############################
 isbn = input("输入ISBN:")
 publisher = input("输入出版社名称(1.wani; 2.got; 3.core; 4.茜新社; 5.hit; 6.ktc; 7.kuroe; 8.mujin):")
@@ -84,15 +93,6 @@ if translator == "5":
 else:
   print(translator)
 
-############################### 图片列表###############################
-filename_list = []
-extension_list = []
-for path, dir_list, file_list in path_image:
-    for index, file_name in enumerate(sorted(file_list)):
-        filename = os.path.splitext(file_name)[0]
-        extension = os.path.splitext(file_name)[1]
-        filename_list.append(filename)
-        extension_list.append(extension)
 
 ############################### 生成manifest列表###############################
 zipped = zip(filename_list, extension_list)
@@ -123,8 +123,6 @@ for index, a in enumerate(g):
         else:
             c = '''<item id="i_{0}" href="Images/{1}{2}" media-type="image/{3}"/>'''.format(str(index+1).zfill(3), a[0], a[1], type)
             m_list.append(c)
-
-
 ############################### 生成opf文件###############################
 u = uuid.uuid4()
 date = time.strftime("%Y-%m-%d"+"T"+"%H:%M:%S"+"Z")
