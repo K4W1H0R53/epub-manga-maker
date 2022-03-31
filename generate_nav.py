@@ -46,9 +46,7 @@ with open(root+"/templates/contents.txt",'r',encoding='UTF-8-sig') as f:
 
 zipped_list = zip(landmarks,pages,contents)
 total = list(zipped_list)
-f=open(root + "/templates/OEBPS/nav.xhtml",mode="r",encoding="utf-8")
-f = f.read()
-nav_list = []
+toc_list = []
 landmarks_list = []
 for x in total:
     if len(x[0]) != 0:
@@ -57,4 +55,21 @@ for x in total:
     if x[2] == "cover":
         continue
     toc_element = '''<li><a href="Text/{0}.xhtml">{1}</a></li>'''.format(x[1],x[2])
-    nav_list.append(toc_element)
+    toc_list.append(toc_element)
+
+f=open(root + "/templates/OEBPS/nav.xhtml",mode="r",encoding="utf-8")
+f = f.read()
+i = 1
+
+for a in toc_list:
+    post = f.find("</ol>")
+    f = f[:post] + a + "\r        "  + f[post:]
+
+
+for b in landmarks_list:
+    post1 = f.find("</ol>")
+    post2 = f.find("</ol>", post1+1)
+    f = f[:post2] + b + "\r        "  + f[post2:]
+file = open(root + "/test.opf",mode="w",encoding="utf-8")
+file.write(f)
+
