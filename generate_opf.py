@@ -109,17 +109,14 @@ def generate_opf():
       s_list = []
       for index, name in enumerate(filename_list):
           if index == 0:
-              c = '''<itemref idref="x_{0}" properties="rendition:page-spread-center"/>'''.format(
-                  name)
+              c = '''<itemref idref="x_{0}" properties="rendition:page-spread-center"/>'''.format(str(index+1).zfill(3))
               s_list.append(c)
           else:
               if index % 2 == 0:
-                  c = '''<itemref idref="x_{0}" properties="page-spread-left"/>'''.format(
-                      name)
+                  c = '''<itemref idref="x_{0}" properties="page-spread-left"/>'''.format(str(index+1).zfill(3))
                   s_list.append(c)
               else:
-                  c = '''<itemref idref="x_{0}" properties="page-spread-right"/>'''.format(
-                      name)
+                  c = '''<itemref idref="x_{0}" properties="page-spread-right"/>'''.format(str(index+1).zfill(3))
                   s_list.append(c)
       return (s_list)
 

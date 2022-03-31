@@ -11,6 +11,3 @@ with zipfile.ZipFile("test.epub","a",zipfile.ZIP_STORED) as archive:
     archive.writestr("mimetype", "application/epub+zip")
     for file_path in dict.rglob("*"):
         archive.write(file_path, arcname=file_path.relative_to(dict))
-
-with zipfile.ZipFile("test.epub", mode="r") as archive:
-    archive.printdir()
