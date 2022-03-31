@@ -1,13 +1,13 @@
 import zipfile
+import pathlib
 import os
 import sys
 
-root = sys.path[0]
-f = zipfile.ZipFile("test.epub","w",zipfile.ZIP_STORED)
-dir = "./temp/"
-for dirpath,dirnames,filenames in os.walk(dir):
-    for filename in filenames:
-        print(os.path.join(dirpath,filename))
-        f.write(os.path.join(dirpath,filename))
+dict = pathlib.Path("./temp")
 
-f.close()
+with zipfile.ZipFile("test.epub","w",zipfile.ZIP_STORED) as archive:
+    for file_path in dict.rglob("*"):
+        archive.write(file_path, arcname=file_path.relative_to(dict))
+
+with zipfile.ZipFile("test.epub", mode="r") as archive:
+    archive.printdir()
