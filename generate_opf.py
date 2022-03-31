@@ -4,7 +4,7 @@ import uuid
 import time
 
 root = sys.path[0]
-path_image = os.walk(root + "/OEBPS/Images")
+path_image = os.walk(root + "/temp/OEBPS/Images")
 
 ############################### 输入元数据###############################
 isbn = input("输入ISBN:")
