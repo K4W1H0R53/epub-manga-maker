@@ -15,8 +15,6 @@
     <meta property="rendition:spread">auto</meta>
     <meta property="rendition:layout">pre-paginated</meta>
     <meta property="dcterms:modified"></meta>
-    <meta property="rendition:layout">pre-paginated</meta>
-    <meta property="rendition:spread">auto</meta>
   </metadata>
   <manifest></manifest>
   <spine page-progression-direction="rtl"></spine>
