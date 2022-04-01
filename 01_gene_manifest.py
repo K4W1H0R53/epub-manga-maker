@@ -172,7 +172,7 @@ if filename_list[-1] == "blank":
 spine_list = []
 for index, name in enumerate(filename_list):
   spine_list.append("x_"+str(index+1).zfill(3))           
-file1 = open("./test1.txt",mode="w",encoding="utf-8")
-for i in test:
+file1 = open("./spine_list.txt",mode="w",encoding="utf-8")
+for i in spine_list:
     file1.write(i+"\n")
 file1.close()
