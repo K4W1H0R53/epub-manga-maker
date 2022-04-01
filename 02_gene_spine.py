@@ -4,6 +4,7 @@ s_list = []
 with open("./spine_list.txt",'r',encoding='UTF-8-sig') as f:
     contents_table= f.read().splitlines()
     for index, a in enumerate(contents_table):
+        a = a.split('|',1)[0]
         if index == 0:
             c = '''<itemref idref="{0}" properties="rendition:page-spread-center"/>'''.format(a)
             s_list.append(c)
