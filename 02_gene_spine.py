@@ -16,11 +16,13 @@ with open("./spine_list.txt",'r',encoding='UTF-8-sig') as f:
                 c = '''<itemref idref="{0}" properties="page-spread-right"/>'''.format(a)
                 s_list.append(c)
 
-for b in s_list:
-    print(b)
-# f=open("./temp/OEBPS/manga.opf",mode="r",encoding="utf-8")
-# content = f.read()
-# keyword2 = "</spine>"
-# for i in spine_list:
-#     position2 = content.find(keyword2)
-#     content = content[:position2] + "\r    " + i + content[position2:]
+f=open("./temp/OEBPS/manga.opf",mode="r",encoding="utf-8")
+content = f.read()
+keyword2 = "</spine>"
+for i in s_list:
+    position2 = content.find(keyword2)
+    content = content[:position2] + "\r    " + i + content[position2:]
+
+file = open("./temp/OEBPS/manga.opf",mode="w",encoding="utf-8")
+file.write(content)
+file.close()
