@@ -1,3 +1,4 @@
+import os
 path_image = os.walk("./books/test")
 
 filename_list = []
@@ -9,28 +10,25 @@ for path, dir_list, file_list in path_image:
         filename_list.append(filename)
         extension_list.append(extension)
 
-x = 0
-for i in page:
-    filename_list.insert(i - 1 + x, "blank")
-    x += 1
-if filename_list[-1] == "blank":
-    filename_list.pop()
-s_list = []
-for index, name in enumerate(filename_list):
-    if index == 0:
-        c = '''<itemref idref="x_{0}" properties="rendition:page-spread-center"/>'''.format(str(index+1).zfill(3))
-        s_list.append(c)
-    else:
-        if index % 2 == 0:
-            c = '''<itemref idref="x_{0}" properties="page-spread-left"/>'''.format(str(index+1).zfill(3))
+with open("./test1.txt",'r',encoding='UTF-8-sig') as f:
+    contents_table= f.read().splitlines()
+    for a in contents_table:
+        if index == 0:
+            c = '''<itemref idref="x_{0}" properties="rendition:page-spread-center"/>'''.format(str(index+1).zfill(3))
             s_list.append(c)
         else:
-            c = '''<itemref idref="x_{0}" properties="page-spread-right"/>'''.format(str(index+1).zfill(3))
-            s_list.append(c)
+            if index % 2 == 0:
+                c = '''<itemref idref="x_{0}" properties="page-spread-left"/>'''.format(str(index+1).zfill(3))
+                s_list.append(c)
+            else:
+                c = '''<itemref idref="x_{0}" properties="page-spread-right"/>'''.format(str(index+1).zfill(3))
+                s_list.append(c)
 
 
-
-# spine = gene_spine()
+with open("./test2.txt",'w',encoding='UTF-8-sig') as t:
+    for a in s_list:
+        t.write(a+"\n")
+        
 # f=open("./temp/OEBPS/manga.opf",mode="r",encoding="utf-8")
 # content = f.read()
 # keyword2 = "</spine>"

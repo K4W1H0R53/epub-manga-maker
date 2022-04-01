@@ -166,3 +166,13 @@ file = open("./temp/OEBPS/manga.opf",mode="w",encoding="utf-8")
 file.write(content)
 file.close()
 print("已生成manga.opf")
+
+if filename_list[-1] == "blank":
+    filename_list.pop()
+spine_list = []
+for index, name in enumerate(filename_list):
+  spine_list.append("x_"+str(index+1).zfill(3))           
+file1 = open("./test1.txt",mode="w",encoding="utf-8")
+for i in test:
+    file1.write(i+"\n")
+file1.close()
