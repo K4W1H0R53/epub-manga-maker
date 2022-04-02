@@ -168,8 +168,6 @@ file.close()
 print("已生成manga.opf")
 print("生成档案名:","["+isbn+"]","["+author+"]",title,"["+source+"]")
 
-if filename_list[-1] == "blank":
-    filename_list.pop()
 spine_list = []
 for index, name in enumerate(filename_list):
   spine_list.append("x_"+str(index+1).zfill(3)+"|"+name)
