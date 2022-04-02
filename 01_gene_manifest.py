@@ -4,7 +4,7 @@ import uuid
 import time
 
 
-path_image = os.walk("./books/test")
+path_image = os.walk("./temp/OEBPS/Images")
 ############################### 图片列表###############################
 filename_list = []
 extension_list = []
