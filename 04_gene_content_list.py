@@ -74,6 +74,7 @@ else:
 
 ######################## 确认正文目录 ########################
 i = 1
+location_list = []
 while i > 0:
     t = input("正文章节是否结束(y/n):")
     if t == "y":
@@ -84,11 +85,15 @@ while i > 0:
             chapter_name = input("添加章节名称:")
             chapter_page = input(chapter_name+"起始页为:")
             contents_element.append(chapter_name+"|"+chapter_page+"|bodymatter\r")
+            location_element = '''<a xlink:href="{0}.xhtml" target="_top"><rect fill-opacity="0.0" x="" y="" width="" height=""><title>{1}</title></rect></a>\r'''.format(chapter_page,chapter_name)
+            location_list.append(location_element)
             i+=1
         else:
             chapter_name = input("添加章节名称:")
             chapter_page = input(chapter_name+"起始页为:")
             contents_element.append(chapter_name+"|"+chapter_page+"|\r")
+            location_element = '''<a xlink:href="{0}.xhtml" target="_top"><rect fill-opacity="0.0" x="" y="" width="" height=""><title>{1}</title></rect></a>\r'''.format(chapter_page,chapter_name)
+            location_list.append(location_element)
             i+=1        
 ######################## 确认后记 ########################
 command = input("是否存在后记页(y/n): ")
@@ -129,7 +134,12 @@ if command == "y":
 else:
     pass
 
-f = open("./test.txt",mode="a",encoding="utf-8")
+f = open("./contents.txt",mode="a",encoding="utf-8")
 for i in contents_element:
+    f.write(i)
+print("目录列表生成完毕")
+
+f = open("./location.txt",mode="a",encoding="utf-8")
+for i in location_list:
     f.write(i)
 print("目录列表生成完毕")

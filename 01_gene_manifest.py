@@ -3,7 +3,6 @@ import sys
 import uuid
 import time
 
-
 path_image = os.walk("./temp/OEBPS/Images")
 ############################### 图片列表###############################
 filename_list = []
