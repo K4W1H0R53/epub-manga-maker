@@ -7,7 +7,7 @@ contents = []   ## 用于储存章节名
 pages = []  ## 用于储存章节开始页文件名
 landmarks = []   ## 用于储存landmark
 
-with open("./contents.txt",'r',encoding='UTF-8-sig') as f:
+with open("./contents_other.txt",'r',encoding='UTF-8-sig') as f:
     contents_table= f.read().splitlines()   ## 读取contents.txt文本文件，文本文件以"$章节名|$起始页文件名"的方式储存正文目录
     for i in contents_table:
         a = i.split('|',2)[0]
