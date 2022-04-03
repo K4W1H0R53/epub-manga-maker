@@ -37,4 +37,3 @@ for b in landmarks_list:
 
 file = open("./temp/OEBPS/nav.xhtml",mode="w",encoding="utf-8")
 file.write(f)
-        

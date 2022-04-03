@@ -142,4 +142,4 @@ print("目录列表生成完毕")
 f = open("./location.txt",mode="a",encoding="utf-8")
 for i in location_list:
     f.write(i)
-print("目录列表生成完毕")
+print("")
