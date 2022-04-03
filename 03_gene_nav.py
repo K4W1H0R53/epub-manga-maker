@@ -13,30 +13,30 @@ with open("./contents.txt",'r',encoding='UTF-8-sig') as f:
         a = i.split('|',2)[0]
         b = i.split('|',2)[1]
         if i.find("#") != -1:    ## 跳过星标行
-            # print("跳过",i)
             continue
         if i.find("*") != -1:    ## 确认正文行
             contents.append(a)
             pages.append(b)
             landmarks.append("bodymatter")
-            # print ("生成landmarks标签:",[a,b,"bodymatter"])
             continue
-        if i.find("cover") != -1:
+        if i.find("cover") != -1:   ## 设置epub封面
             contents.append(a)
             pages.append(b)           
             landmarks.append("cover")
-            # print ("生成landmarks标签:",[a,b,"cover"])
             continue
-        if i.find("目次")!= -1:
+        if i.find("表纸") != -1 or i.find("封面") != -1:   ## 设置epub封面
+            contents.append(a)
+            pages.append(b)           
+            landmarks.append("")
+            continue        
+        if i.find("目次")!= -1 or i.find("目錄")!= -1:
             contents.append(a)
             pages.append(b)
             landmarks.append("toc")
-            # print ("生成landmarks标签:",[a,b,"toc"])
             continue
-        if i.find("奥付")!= -1:
+        if i.find("奥付")!= -1 or i.find("版權頁")!= -1:
             contents.append(a)
             pages.append(b)
-            # print ("生成landmarks标签:",[a,b,"colophon"])
             landmarks.append("colophon")
             continue
         else:
