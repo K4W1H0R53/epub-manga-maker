@@ -24,7 +24,7 @@ with open("./contents.txt",'r',encoding='UTF-8-sig') as f:
             pages.append(b)           
             landmarks.append("cover")
             continue
-        if i.find("表纸") != -1 or i.find("封面") != -1:   ## 设置epub封面
+        if i.find("表纸") != -1 or i.find("封面") != -1:
             contents.append(a)
             pages.append(b)           
             landmarks.append("")
@@ -59,7 +59,6 @@ for x in total:
 
 f=open("./templates/nav_templates.xhtml",mode="r",encoding="utf-8")
 f = f.read()
-i = 1
 
 for a in toc_list:
     post = f.find("</ol>")
