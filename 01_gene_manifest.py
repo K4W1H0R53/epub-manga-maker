@@ -101,28 +101,23 @@ m_list = []
 c = '''<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>'''
 m_list.append(c)
 for index, a in enumerate(g):
-    if a[0] == "blank":
-        c = '''<item id="x_blank" href="Text/blank.xhtml" media-type="application/xhtml+xml" properties="svg"/>'''
-        m_list.append(c)
-    else:
-        c = '''<item id="x_{0}" href="Text/{1}.xhtml" media-type="application/xhtml+xml" properties="svg"/>'''.format(str(index+1).zfill(3), a[0])
-        m_list.append(c)
+  c = '''<item id="x_{0}" href="Text/{1}.xhtml" media-type="application/xhtml+xml" properties="svg"/>'''.format(str(index+1).zfill(3), a[0])
+  m_list.append(c)
+
+c = '''<item id="x_blank" href="Text/blank.xhtml" media-type="application/xhtml+xml" properties="svg"/>'''
+m_list.append(c)
 
 for index, a in enumerate(g):
     if a[1] == ".jpg":
-        type = "jpeg"
+      type = "jpeg"
     if a[1] == ".png":
-        type = "png"
+      type = "png"
     if index == 0:
-        c = '''<item id="i_{0}" href="Images/{1}{2}" media-type="image/{3}" properties="cover-image"/>'''.format(str(index+1).zfill(3), a[0], a[1], type)
-        m_list.append(c)
+      c = '''<item id="i_{0}" href="Images/{1}{2}" media-type="image/{3}" properties="cover-image"/>'''.format(str(index+1).zfill(3), a[0], a[1], type)
+      m_list.append(c)
     else:
-        if a[0] == "blank":
-            c = '''<item id="i_blank" href="Images/{1}{2}" media-type="image/{3}"/>'''.format(str(index+1).zfill(3), a[0], a[1], type)
-            m_list.append(c)
-        else:
-            c = '''<item id="i_{0}" href="Images/{1}{2}" media-type="image/{3}"/>'''.format(str(index+1).zfill(3), a[0], a[1], type)
-            m_list.append(c)
+      c = '''<item id="i_{0}" href="Images/{1}{2}" media-type="image/{3}"/>'''.format(str(index+1).zfill(3), a[0], a[1], type)
+      m_list.append(c)
 ############################### 生成opf文件###############################
 u = uuid.uuid4()
 date = time.strftime("%Y-%m-%d"+"T"+"%H:%M:%S"+"Z")

@@ -29,4 +29,12 @@ for path, dirs, files in path_image:
         f = open("./temp/OEBPS/Text/" + os.path.splitext(file)[0] + ".xhtml", mode="w", encoding="utf-8")
         f.write(page_html)
         f.close()
-        print("已生成",os.path.splitext(file)[0] + ".xhtml")
+
+f = open("./templates/blank_templates.xhtml", mode="r", encoding="utf-8")
+content = f.read()
+content = content.format(title)
+f.close()
+f = open("./temp/OEBPS/Text/blank.xhtml", mode= "w", encoding = "utf-8")
+f.write(content)
+f.close()
+print("已生成空白页")
