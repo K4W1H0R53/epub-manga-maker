@@ -2,16 +2,6 @@
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" prefix="rendition: http://www.idpf.org/vocab/rendition/#" unique-identifier="uuid">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
     <dc:identifier id="uuid"></dc:identifier>
-    <dc:identifier id="isbn"></dc:identifier>
-    <dc:publisher></dc:publisher>
-    <dc:date></dc:date>
-    <dc:creator></dc:creator>
-    <dc:title></dc:title>
-    <dc:description>test</dc:description>
-    <dc:language></dc:language>
-    <dc:source></dc:source>
-    <dc:creator id="cre"></dc:creator>
-    <meta refines="#cre" property="role" scheme="marc:relators">trl</meta>
     <meta property="rendition:spread">auto</meta>
     <meta property="rendition:layout">pre-paginated</meta>
     <meta property="dcterms:modified"></meta>
