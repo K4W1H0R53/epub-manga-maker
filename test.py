@@ -1,25 +1,21 @@
-import get_metadate,os,sys,uuid,time,cv2
-import numpy as np
+post_x = float(input("请输入X坐标点"))
+post_y = float(input("请输入Y坐标点"))
+rect_width = float(input("请输入矩形宽度"))
+rect_height = float(input("请输入矩形高度"))
+degree = input("请输入旋转角度")
+if not degree:
+    pass
+else:
+    rotate_x = input("请输入旋转点X坐标点")
+    rotate_y = input("请输入旋转点Y坐标点")
+scape = float(input("请输入间距"))
 
-path_image = os.walk("./temp/OEBPS/Images")
-title = ['test','test']
-for path, dirs, files in path_image:
-    for file in files:
-        img = cv2.imdecode(np.fromfile(os.path.join(path, file), dtype=np.uint8), 1)
-        src_width = img.shape[1]
-        src_height = img.shape[0]
-        page_html = '''<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html>
-        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">  <head>
-            <meta charset="UTF-8"/>
-            <title>{3}</title>
-            <meta name="viewport" content="width={0}, height={1}" />
-            </head>  <body style="margin:0;padding:0;">
-            <div>
-                <svg style="margin:0;padding:0;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 {0} {1}">
-                <image width="{0}" height="{1}" xlink:href="../Images/{2}"/>
-                </svg>
-            </div>
-            </body>
-        </html>'''.format(src_width, src_height, file,title[0])
-        f = open("./temp/OEBPS/Text/" + os.path.splitext(file)[0] + ".xhtml", mode="w", encoding="utf-8")
-        f.write(page_html)
+with open("./location.txt","r",encoding="utf-8") as f:
+    location_table=f.read().splitlines()
+    for i in location_table:
+        i = i.replace("x=\"\"","x=\""+str(post_x)+"\"")
+        i = i.replace("y=\"\"","y=\""+str(post_y)+"\"")
+        i = i.replace("width=\"\"","y=\""+str(rect_width)+"\"")
+        i = i.replace("height=\"\"","y=\""+str(rect_height)+"\"")
+        post_y = post_y + scape
+        print(i)
