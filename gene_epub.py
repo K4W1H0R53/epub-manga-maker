@@ -1,5 +1,5 @@
 import epub_modules as epub
-import os,sys,uuid,time,cv2
+import os,sys,uuid,time,cv2,pathlib
 import numpy as np
 
 

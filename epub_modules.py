@@ -167,7 +167,9 @@ def gene_opf(metadate_list,manifest_list,spine_list):
         for b in manifest_list:
             post_manifest = content.find('</manifest>')
             content = content[:post_manifest] + "\r    " + b + content[post_manifest:]
-
+        for c in spine_list:
+            post_spine = content.find('</spine>')
+            content = content[:post_spine] + "\r    " + c + content[post_spine:]
     file = open("./temp/OEBPS/manga.opf",mode="w",encoding="utf-8")
     file.write(content)
     file.close()
