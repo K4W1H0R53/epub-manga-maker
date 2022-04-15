@@ -171,5 +171,3 @@ def gene_opf(metadate_list,manifest_list,spine_list):
     file = open("./temp/OEBPS/manga.opf",mode="w",encoding="utf-8")
     file.write(content)
     file.close()
-
-
