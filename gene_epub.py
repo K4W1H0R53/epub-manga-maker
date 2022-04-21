@@ -4,7 +4,7 @@ import numpy as np
 
 
 a = 0
-t = input("请选择源文件类型(1.日版; 2.台版/英版/民间汉化版):")
+t = input("请选择源文件类型(1.日版; 2.台版|英版|民间汉化版):")
 identifier = input("输入ISBN:")
 publisher = input("输入出版社名称(1.wani; 2.got; 3.core; 4.akaneshinsha; 5.hit; 6.bavel; 7.ktc; 8.kuroe; 9.mujin):")
 if publisher == "1":
