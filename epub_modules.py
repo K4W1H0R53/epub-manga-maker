@@ -27,7 +27,7 @@ class Generate_field:
         return(field)
 
 class Metadate:
-    def __init__(self,identifier,publisher,date,author,title,language,source,contributor,description = ["test","dc:description"],translator=None):
+    def __init__(self,identifier,publisher,date,author,title,language,source,contributor,description = ["test","description"],translator=None):
         self.identifier = identifier
         self.publisher = publisher[0]
         self.publisher_char = publisher[1]

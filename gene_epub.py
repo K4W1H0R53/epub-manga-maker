@@ -1,5 +1,5 @@
 import epub_modules as epub
-import os,sys,uuid,time,cv2,pathlib,zipfile
+import os,sys,uuid,time,cv2
 import numpy as np
 
 
@@ -71,12 +71,12 @@ if t != "1":
       translator = "FAKKU"
 else:
   translator = None
-uploader = [input("输入上传者:"),"uploader"]
+contributor = [input("输入上传者:"),"contributor"]
 
 ##################################
 input("按回车生成元数据")
 ##################################
-b = epub.Metadate(identifier=identifier, publisher=publisher, date=date, author=author, title=title, language=language, source=source, uploader=uploader, translator=translator)
+b = epub.Metadate(identifier=identifier, publisher=publisher, date=date, author=author, title=title, language=language, source=source, contributor=contributor, translator=translator)
 metadate_list= b.gene_metadate_list()
 
 ##################################
@@ -266,6 +266,7 @@ file.close()
 ##########################################################################################################################################
 input("打包epub")
 ##########################################################################################################################################
+
 import zipfile,pathlib
 dict = pathlib.Path("./temp")
 # with zipfile.ZipFile("./["+identifier+"]","["+author+"]",+title,"["+source+"]","["+uploader+"]"".epub","a",zipfile.ZIP_STORED) as archive:
