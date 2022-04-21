@@ -118,18 +118,8 @@ cover_filename = input("请输入epub封面文件名(此项用于显示epub预�
 trueorfalse(cover_filename)
 contents_element.append(contents_dict[0]+"|"+cover_filename+"|cover\r")
 ######################## 确认正文封面及目录 ########################
-command = input("封面与目录是否在同一页(y/n): ")
-trueorfalse(command)
-if command == "y":
-    command = input("请输入"+contents_dict[2]+"页面文件名:")
-    trueorfalse(command)
-    contents_element.append(contents_dict[2]+"|"+command+"|toc\r")
-if command == "n":
-    command = input("请输入"+contents_dict[0]+"页面文件名:")
-    contents_element.append(contents_dict[0]+"|"+command+"|\r")
-    command = input("请输入"+contents_dict[1]+"页面文件名:")
-    trueorfalse(command)
-    contents_element.append(contents_dict[1]+"|"+command+"|toc\r")
+command = input("请输入"+contents_dict[0]+"页面文件名:")
+contents_element.append(contents_dict[0]+"|"+command+"|\r")
 ######################## 确认书名页 ########################
 command = input("是否存在书名页(y/n): ")
 trueorfalse(command)
@@ -139,6 +129,9 @@ if command == "y":
     contents_element.append(contents_dict[3]+"|"+command+"|\r")
 if command == "n":
     pass
+command = input("请输入"+contents_dict[1]+"页面文件名:")
+trueorfalse(command)
+contents_element.append(contents_dict[1]+"|"+command+"|toc\r")
 ######################## 确认彩图页 ########################
 command = input("是否存在彩图插画(y/n): ")
 trueorfalse(command)
