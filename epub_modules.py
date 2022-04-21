@@ -27,7 +27,7 @@ class Generate_field:
         return(field)
 
 class Metadate:
-    def __init__(self,identifier,publisher,date,author,title,language,source,uploader,description = ["test","description"],translator=None):
+    def __init__(self,identifier,publisher,date,author,title,language,source,contributor,description = ["test","dc:description"],translator=None):
         self.identifier = identifier
         self.publisher = publisher[0]
         self.publisher_char = publisher[1]
@@ -42,8 +42,8 @@ class Metadate:
         self.language_char = language[1]
         self.source = source[0]
         self.source_char = source[1]
-        self.uploader = uploader[0]
-        self.uploader_char = uploader[1]
+        self.contributor = contributor[0]
+        self.contributor_char = contributor[1]
         self.translator = translator
 
     def gene_metadate_list(self):
@@ -64,7 +64,7 @@ class Metadate:
         metadate_list.append(a.common())
         a = Generate_field(self.source,self.source_char)
         metadate_list.append(a.common())
-        a = Generate_field(self.uploader,self.uploader_char)
+        a = Generate_field(self.contributor,self.contributor_char)
         metadate_list.append(a.common())
         if not self.translator:
             return (metadate_list)
