@@ -18,11 +18,11 @@ class Generate_field:
         print(field)
         return(field)
     def creator(self):
-        field = '<dc:creator id=\"cre\">'+self.field_name+'</dc:creator>'
+        field = '<dc:creator id=\"cre0\">'+self.field_name+'</dc:creator>'
         print(field)
         return(field)
     def translator(self):
-        field = '''<dc:creator id=\"cre\">'{0}'</dc:creator>\n<meta refines="#cre" property="role" scheme="marc:relators">trl</meta>'''.format(self.field_name)
+        field = '''<dc:creator id=\"cre1\">'{0}'</dc:creator>\n<meta refines="#cre1" property="role" scheme="marc:relators">trl</meta>'''.format(self.field_name)
         print(field)
         return(field)
 
