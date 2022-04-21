@@ -6,7 +6,7 @@ class Generate_field:
         self.field_name = field_name
         self.character = character
     def common(self):
-        field = '''<dc:{0}>{1}</{0}>'''.format(self.character,self.field_name)
+        field = '''<dc:{0}>{1}</dc:{0}>'''.format(self.character,self.field_name)
         print(field)
         return(field)
     def identifier(self):
