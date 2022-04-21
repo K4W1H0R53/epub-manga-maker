@@ -251,7 +251,7 @@ for x in total:
     toc_list.append(toc_element)
 
 f=open("./templates/nav_templates.xhtml",mode="r",encoding="utf-8")
-f = f.read().format(title)
+f = f.read().format(title[0])
 
 for a in toc_list:
     post = f.find("</ol>")
@@ -268,8 +268,7 @@ input("打包epub")
 ##########################################################################################################################################
 import zipfile,pathlib
 dict = pathlib.Path("./temp")
-# with zipfile.ZipFile("./["+identifier+"]","["+author+"]",+title,"["+source+"]","["+uploader+"]"".epub","a",zipfile.ZIP_STORED) as archive:
-with zipfile.ZipFile("test.epub","a",zipfile.ZIP_STORED) as archive:
+with zipfile.ZipFile("./["+identifier+"]","["+author+"]",+title,"["+source+"]","["+uploader+"]"".epub","a",zipfile.ZIP_STORED) as archive:
     archive.writestr("mimetype", "application/epub+zip")
     for file_path in dict.rglob("*"):
         archive.write(file_path, arcname=file_path.relative_to(dict))
