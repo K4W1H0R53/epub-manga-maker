@@ -1,6 +1,11 @@
-import os
+import os,uuid,time
 import numpy as np
 import cv2
+
+def uuid_id():
+    text = str(uuid.uuid4())
+    return text
+
 class Generate_field:
     def __init__(self,field_name,character=None):
         self.field_name = field_name
@@ -145,6 +150,13 @@ def gene_spine_list():
 def gene_opf(metadate_list,manifest_list,spine_list):
     with open('./templates/manga_templates.opf','r',encoding='utf-8') as f:
         content = f.read()
+        x = uuid.uuid4()
+        post_uuid = content.find('</dc:identifier>')
+        content = content[:post_uuid] + "\r    " + x + content[post_uuid:]
+        y = time.strftime("%Y-%m-%d"+"T"+"%H:%M:%S"+"Z",time.localtime())
+        post_uuid = content.find('<meta property="dcterms:modified">')
+        content = content[:post_metadate] + "\r    " + y + content[post_metadate:]
+
         for a in metadate_list:
             post_metadate = content.find('<meta property="rendition:spread">auto</meta>')
             content = content[:post_metadate] + "\r    " + a + content[post_metadate:]
