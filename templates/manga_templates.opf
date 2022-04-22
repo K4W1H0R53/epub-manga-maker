@@ -4,8 +4,7 @@
     <dc:identifier id="uuid"></dc:identifier>
     <meta property="rendition:spread">auto</meta>
     <meta property="rendition:layout">pre-paginated</meta>
-    <meta property="dcterms:modified"></meta>
-  </metadata>
+    <meta property="dcterms:modified"></meta></metadata>
   <manifest></manifest>
   <spine page-progression-direction="rtl"></spine>
 </package>
