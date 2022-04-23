@@ -94,6 +94,7 @@ def gene_xhtml(title):
             src_width = img.shape[1]
             src_height = img.shape[0]
             xhtml_content = open("./templates/blank_templates.xhtml","r",encoding="utf-8")
+            xhtml_content = xhtml_content.read()
             page_html = xhtml_content.format(src_width, src_height, file_name,title[0])
             f = open("./temp/OEBPS/Text/" + os.path.splitext(file_name)[0] + ".xhtml", mode="w", encoding="utf-8")
             f.write(page_html)
@@ -150,11 +151,11 @@ def gene_spine_list():
 def gene_opf(metadate_list,manifest_list,spine_list):
     with open('./templates/manga_templates.opf','r',encoding='utf-8') as f:
         content = f.read()
-        x = uuid.uuid4()
+        x = str(uuid.uuid4())
         post_uuid = content.find('</dc:identifier>')
         content = content[:post_uuid] + "\r    " + x + content[post_uuid:]
         y = time.strftime("%Y-%m-%d"+"T"+"%H:%M:%S"+"Z",time.localtime())
-        post_uuid = content.find('<meta property="dcterms:modified">')
+        post_metadate = content.find('<meta property="dcterms:modified">')
         content = content[:post_metadate] + "\r    " + y + content[post_metadate:]
 
         for a in metadate_list:
