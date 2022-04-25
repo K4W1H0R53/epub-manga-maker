@@ -1,5 +1,4 @@
 import requests,re
-
 tags_dict = {
     'male':'男性',
     'female':'女性',
@@ -25,9 +24,8 @@ tags_dict = {
     'sweating':'出汗'
     }
 
-def get_gallery_id():
-    gurl = input("请输入画廊地址:")
-    temp = re.split('\/',gurl)
+def get_gallery_id(gallery_url):
+    temp = re.split('\/',gallery_url)
     gid = temp[4]
     gtoken = temp[5]
     return(gid,gtoken)
@@ -55,12 +53,3 @@ def get_tags_list(gid,gtoken):
             tags_list.append(tag_name)
             tags_list_cn.append(tag_name_cn)
     return(tags_list_cn,tags_list)
-
-gallery_id = get_gallery_id()
-gid = gallery_id[0]
-gtoken = gallery_id[1]
-tags_name_en = get_tags_list(gid,gtoken)[0]
-tags_name_cn = get_tags_list(gid,gtoken)[1]
-
-for i in tags_name_en:
-    print(i,end=',')

@@ -78,8 +78,7 @@ class Metadate:
         else:
             a = Generate_field(self.translator)
             metadate_list.append(a.translator())
-        s = str(self.tags)
-        s = s.split(",")
+        s = self.tags
         for i in s:
             a = Generate_field(i,self.tags_char)
             metadate_list.append(a.common())
