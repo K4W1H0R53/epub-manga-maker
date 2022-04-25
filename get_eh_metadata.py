@@ -2,6 +2,10 @@ import requests,re
 tags_dict = {
     'male':'男性',
     'female':'女性',
+    'other':'其他',
+    'mix':'混合',
+    'group':'乱交',
+    'ffm threesome':'女男女',
     'drunk':'饮酒',
     'shotacon':'正太',
     'condom':'避孕套',
@@ -33,7 +37,10 @@ tags_dict = {
     'nurse':'护士',
     'pantyhose':'连裤袜',
     'twintails':'双马尾',
-    'glasses':'眼镜'
+    'glasses':'眼镜',
+    'sex toys':'性玩具',
+    'garter belt':'吊带袜',
+
     }
 
 def get_gallery_id(gallery_url):
