@@ -1,6 +1,7 @@
 import epub_modules as epub
 import os,sys,uuid,time,cv2
 import numpy as np
+import get_eh_metadata as eh
 
 
 a = 0
@@ -73,7 +74,7 @@ else:
   translator = None
 contributor = [input("输入上传者:"),"contributor"]
 
-tags = [input("输入标签(每个标签之间用英文逗号隔开):"),"subject"]
+tags = [eh.get_tags_list(eh.get_gallery_id()[0], eh.get_gallery_id()[1]),"subject"]
 
 ##################################
 input("按回车生成元数据")
@@ -84,7 +85,6 @@ f = open("./metadata.txt","w",encoding="utf-8")
 for i in metadate_list:
     f.write(i +"\n")
     f.close
-
 ##################################
 input("按回车生成opf及xhtml")
 ##################################
