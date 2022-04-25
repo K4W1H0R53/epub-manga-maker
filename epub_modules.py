@@ -121,8 +121,6 @@ def gene_xhtml(title):
             for index, a in enumerate(g):
                 c = '''<item id="x_{0}" href="Text/{1}.xhtml" media-type="application/xhtml+xml" properties="svg"/>'''.format(str(index+1).zfill(3), a[0])
                 m_list.append(c)
-            c = '''<item id="x_blank" href="Text/blank.xhtml" media-type="application/xhtml+xml" properties="svg"/>'''
-            m_list.append(c)
             for index, a in enumerate(g):
                 if a[1] == ".jpg":
                     type = "jpeg"

@@ -21,7 +21,19 @@ tags_dict = {
     'ponytail':'单马尾',
     'prostitution':'卖春',
     'stockings':'长筒袜',
-    'sweating':'出汗'
+    'sweating':'出汗',
+    'freckles':'雀斑',
+    'business suit':'西装',
+    'defloration':'破处',
+    'fishnets':'渔网',
+    'hair buns':'丸子头',
+    'impregnation':'受孕',
+    'kimono':'和服',
+    'lingerie':'情趣内衣',
+    'nurse':'护士',
+    'pantyhose':'连裤袜',
+    'twintails':'双马尾',
+    'glasses':'眼镜'
     }
 
 def get_gallery_id(gallery_url):
@@ -33,7 +45,7 @@ def get_gallery_id(gallery_url):
 def get_tags_list(gid,gtoken):
     tags_list = []
     tags_list_cn = []
-    response_content = requests.post(url='https://api.e-hentai.org/api.php', json = {"method": "gdata","gidlist": [[gid,gtoken]],"namespace": 1})
+    response_content = requests.post(url='https://api.e-hentai.org/api.php', json={"method": "gdata","gidlist": [[gid,gtoken]],"namespace": 1})
     response_content = response_content.text
     response_content = str(re.findall('\"tags\"\:\[(.*?)\]',response_content))
     tags = response_content.replace('\"','').replace('\'', '').replace('[', '').replace(']', '')
