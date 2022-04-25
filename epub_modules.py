@@ -27,12 +27,12 @@ class Generate_field:
         print(field)
         return(field)
     def translator(self):
-        field = '''<dc:creator id=\"cre1\">'{0}'</dc:creator>\n<meta refines="#cre1" property="role" scheme="marc:relators">trl</meta>'''.format(self.field_name)
+        field = '''<dc:creator id=\"cre1\">{0}</dc:creator>\n<meta refines="#cre1" property="role" scheme="marc:relators">trl</meta>'''.format(self.field_name)
         print(field)
         return(field)
 
 class Metadate:
-    def __init__(self,identifier,publisher,date,author,title,language,source,contributor,description = ["test","description"],translator=None):
+    def __init__(self,identifier,publisher,date,author,title,language,source,contributor,tags,description=["test","description"],translator=None):
         self.identifier = identifier
         self.publisher = publisher[0]
         self.publisher_char = publisher[1]
@@ -40,7 +40,7 @@ class Metadate:
         self.date_char = date[1]
         self.author = author
         self.title = title[0]
-        self.title_char = date[1]
+        self.title_char = title[1]
         self.description = description[0]
         self.description_char = description[1]
         self.language = language[0]
@@ -50,6 +50,8 @@ class Metadate:
         self.contributor = contributor[0]
         self.contributor_char = contributor[1]
         self.translator = translator
+        self.tags = tags[0]
+        self.tags_char = tags[1]
 
     def gene_metadate_list(self):
         metadate_list = []
@@ -76,6 +78,11 @@ class Metadate:
         else:
             a = Generate_field(self.translator)
             metadate_list.append(a.translator())
+        s = str(self.tags)
+        s = s.split(",")
+        for i in s:
+            a = Generate_field(i,self.tags_char)
+            metadate_list.append(a.common())
         return (metadate_list)
 
 

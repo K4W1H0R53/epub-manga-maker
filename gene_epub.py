@@ -73,11 +73,17 @@ else:
   translator = None
 contributor = [input("输入上传者:"),"contributor"]
 
+tags = [input("输入标签(每个标签之间用英文逗号隔开):"),"subject"]
+
 ##################################
 input("按回车生成元数据")
 ##################################
-b = epub.Metadate(identifier=identifier, publisher=publisher, date=date, author=author, title=title, language=language, source=source, contributor=contributor, translator=translator)
+b = epub.Metadate(identifier=identifier, publisher=publisher, date=date, author=author, title=title, language=language, source=source, contributor=contributor, translator=translator,tags = tags)
 metadate_list= b.gene_metadate_list()
+f = open("./metadata.txt","w",encoding="utf-8")
+for i in metadate_list:
+    f.write(i +"\n")
+    f.close
 
 ##################################
 input("按回车生成opf及xhtml")
@@ -270,7 +276,7 @@ input("打包epub")
 import zipfile,pathlib
 dict = pathlib.Path("./temp")
 # with zipfile.ZipFile("./["+identifier+"]","["+author+"]",+title,"["+source+"]","["+uploader+"]"".epub","a",zipfile.ZIP_STORED) as archive:
-with zipfile.ZipFile("./test.epub","w",zipfile.ZIP_STORED) as archive:
+with zipfile.ZipFile("./output/test.epub","w",zipfile.ZIP_STORED) as archive:
     archive.writestr("mimetype", "application/epub+zip")
     for file_path in dict.rglob("*"):
         archive.write(file_path, arcname=file_path.relative_to(dict))
