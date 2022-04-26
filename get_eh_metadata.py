@@ -87,6 +87,8 @@ tags_dict = {
     'pixie cut':'精灵头',
     'tomboy':'假小子',
     'waitress':'女侍者装',
+    'cousin':'表姐妹',
+    'niece':'侄女'
     }
 
 
