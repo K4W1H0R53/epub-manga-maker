@@ -7,6 +7,7 @@ tags_dict = {
     'group':'乱交',
     'bondage':'束缚',
     'ffm threesome':'女男女',
+    'mmf threesome':'男女男',
     'dilf':'大叔',
     'drunk':'饮酒',
     'shotacon':'正太',
@@ -79,7 +80,13 @@ tags_dict = {
     'wet clothes':'湿身',
     'dark skin':'黑皮',
     'gloves':'手套',
-    'school swimsuit':'死库水'
+    'school swimsuit':'死库水',
+    'ghost':'幽灵',
+    'muscle':'肌肉',
+    'apron':'围裙',
+    'pixie cut':'精灵头',
+    'tomboy':'假小子',
+    'waitress':'女侍者装',
     }
 
 
