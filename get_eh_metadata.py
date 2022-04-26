@@ -88,7 +88,13 @@ tags_dict = {
     'tomboy':'假小子',
     'waitress':'女侍者装',
     'cousin':'表姐妹',
-    'niece':'侄女'
+    'niece':'侄女',
+    'breast feeding':'哺乳',
+    'inverted nipples':'乳头内陷',
+    'lolicon':'萝莉',
+    'teacher':'教师',
+    'beauty mark':'美人痣',
+    'tracksuit':'运动服'
     }
 
 
