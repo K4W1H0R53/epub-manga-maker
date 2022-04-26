@@ -75,8 +75,8 @@ else:
 contributor = [input("输入上传者:"),"contributor"]
 
 gallery_url = input("输入画廊地址:")
-gallery_id = eh.get_gallery_id(gallery_url)
-tags = [eh.get_tags_list(gallery_id[0], gallery_id[1])[0],"subject"]
+tags_list = eh.get_tags_list(gallery_url)
+tags = [tags_list[0],"subject"]
 ##################################
 input("按回车生成元数据")
 ##################################
