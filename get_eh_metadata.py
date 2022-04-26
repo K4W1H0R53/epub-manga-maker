@@ -6,6 +6,7 @@ tags_dict = {
     'mix':'混合',
     'group':'乱交',
     'ffm threesome':'女男女',
+    'dilf':'大叔',
     'drunk':'饮酒',
     'shotacon':'正太',
     'condom':'避孕套',
@@ -40,7 +41,15 @@ tags_dict = {
     'glasses':'眼镜',
     'sex toys':'性玩具',
     'garter belt':'吊带袜',
-
+    'swimsuit':'泳装',
+    'paizuri':'乳交',
+    'bikini':'比基尼',
+    'footjob':'足交',
+    'sumata':'素股',
+    'kemonomimi':'兽耳',
+    'fox girl':'狐娘',
+    'cat girl':'猫娘',
+    'schoolgirl uniform':'女生制服'
     }
 
 def get_gallery_id(gallery_url):
