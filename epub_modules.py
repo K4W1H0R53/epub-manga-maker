@@ -16,10 +16,10 @@ class Generate_field:
         return(field)
     def identifier(self):
         if "-" in self.field_name:
-            id_type = "other"
+            field = '''<dc:identifier>{0}</dc:identifier>'''.format(self.field_name)
         else:
             id_type = "isbn"
-        field = '''<dc:identifier id=\"{0}\">{1}</dc:identifier>'''.format(id_type,self.field_name)
+            field = '''<dc:identifier id=\"{0}\">{1}</dc:identifier>'''.format(id_type,self.field_name)
         print(field)
         return(field)
     def creator(self):

@@ -3,7 +3,7 @@ tags_dict = {
     'male':'男性',
     'female':'女性',
     'other':'其他',
-    'mix':'混合',
+    'mixed':'混合',
     'group':'乱交',
     'bondage':'束缚',
     'ffm threesome':'女男女',
@@ -50,7 +50,7 @@ tags_dict = {
     'sumata':'素股',
     'kemonomimi':'兽耳',
     'fox girl':'狐娘',
-    'cat girl':'猫娘',
+    'catgirl':'猫娘',
     'schoolgirl uniform':'女生制服',
     'schoolboy uniform':'男生制服',
     'double penetration':'双重插入',
@@ -64,7 +64,22 @@ tags_dict = {
     'femdom':'女性主导',
     'yandere':'病娇',
     'yuri':'百合',
-    'handjob':'打手枪'
+    'handjob':'打手枪',
+    'sister':'姐妹',
+    'small breasts':'贫乳',
+    'incest':'乱伦',
+    'gokkun':'饮精',
+    'cum swap':'交换精液',
+    'bbm':'胖男人',
+    'collar':'项圈',
+    'leash':'狗链',
+    'facial hair':'胡子',
+    'sundress':'夏装',
+    'tail':'尾巴',
+    'wet clothes':'湿身',
+    'dark skin':'黑皮',
+    'gloves':'手套',
+    'school swimsuit':'死库水'
     }
 
 
