@@ -94,7 +94,30 @@ tags_dict = {
     'lolicon':'萝莉',
     'teacher':'教师',
     'beauty mark':'美人痣',
-    'tracksuit':'运动服'
+    'tracksuit':'运动服',
+    'tanlines':'晒痕',
+    'x-ray':'透视',
+    'blindfold':'遮眼布',
+    'chikan':'痴汉',
+    'clothed female nude male':'裸男',
+    'layer cake':'夹心蛋糕',
+    'phimosis':'包茎',
+    'prostate massage':'前列腺按摩',
+    'small penis':'小小鸟',
+    'ahegao':'啊嘿颜',
+    'harem':'后宫',
+    'pantyjob':'内裤交',
+    'blackmail':'勒索',
+    'bride':'婚纱',
+    'shimaidon':'姐妹丼',
+    'twins':'双胞胎',
+    'big ass':'大屁股',
+    'fundoshi':'六尺褌',
+    'gyaru':'辣妹',
+    'voyeurism':'偷窥',
+    'urination':'排尿',
+    'piercing':'穿孔',
+    'pregnant':'怀孕'
     }
 
 
@@ -126,26 +149,23 @@ def get_tags_list(gallery_url):
             tags_list_cn.append(tag_name_cn)
     return(tags_list_cn,tags_list)
 
-def gene_subject():
-    tags_list = []
-    tags_list_cn = []
-    f = open('./tags.txt','r',encoding='utf-8')
-    tags_table= f.read().splitlines()
-    for i in tags_table:
-        tags_prefix = i.split(':')[0]
-        tags_suffix = i.split(':')[1]
-        if tags_prefix == "artist" or tags_prefix == "other":
-            tag_name = str(tags_prefix) + ":" + str(tags_suffix)
-            tags_list.append(tag_name)
-            continue
-        else:
-            tags_prefix_cn = tags_dict.get(tags_prefix)
-            tags_suffix_cn = tags_dict.get(tags_suffix)
-            tag_name = str(tags_prefix) + ":" + str(tags_suffix)
-            tag_name_cn = str(tags_prefix_cn) + ":" + str(tags_suffix_cn)
-            tags_list.append(tag_name)
-            tags_list_cn.append(tag_name_cn)
-    return(tags_list_cn,tags_list)
-
-for i in gene_subject()[0]:
-    print('<dc:subject>'+i+'</dc:subject>')
+# def gene_subject():
+#     tags_list = []
+#     tags_list_cn = []
+#     f = open('./tags.txt','r',encoding='utf-8')
+#     tags_table= f.read().splitlines()
+#     for i in tags_table:
+#         tags_prefix = i.split(':')[0]
+#         tags_suffix = i.split(':')[1]
+#         if tags_prefix == "artist" or tags_prefix == "other":
+#             tag_name = str(tags_prefix) + ":" + str(tags_suffix)
+#             tags_list.append(tag_name)
+#             continue
+#         else:
+#             tags_prefix_cn = tags_dict.get(tags_prefix)
+#             tags_suffix_cn = tags_dict.get(tags_suffix)
+#             tag_name = str(tags_prefix) + ":" + str(tags_suffix)
+#             tag_name_cn = str(tags_prefix_cn) + ":" + str(tags_suffix_cn)
+#             tags_list.append(tag_name)
+#             tags_list_cn.append(tag_name_cn)
+#     return(tags_list_cn,tags_list)
