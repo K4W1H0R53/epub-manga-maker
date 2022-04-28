@@ -117,7 +117,22 @@ tags_dict = {
     'voyeurism':'偷窥',
     'urination':'排尿',
     'piercing':'穿孔',
-    'pregnant':'怀孕'
+    'pregnant':'怀孕',
+    'age progression':'年龄增长',
+    'miko':'巫女',
+    'sole male':'单男主',
+    'aunt':'阿姨',
+    'bandages':'绷带',
+    'bisexual':'双性恋',
+    'daughter':'女儿',
+    'hidden sex':'隐蔽性交',
+    'mother':'母亲',
+    'oyakodon':'母女丼',
+    'rape':'强奸',
+    'sarashi':'缠胸布',
+    'stomach deformation':'腹部变形',
+    'inseki':'姻亲',
+    
     }
 
 
