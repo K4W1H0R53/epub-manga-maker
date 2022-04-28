@@ -132,7 +132,6 @@ tags_dict = {
     'sarashi':'缠胸布',
     'stomach deformation':'腹部变形',
     'inseki':'姻亲',
-    
     }
 
 
