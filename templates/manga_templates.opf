@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" prefix="rendition: http://www.idpf.org/vocab/rendition/#" unique-identifier="uuid">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <dc:identifier id="uuid"></dc:identifier>
     <meta property="rendition:spread">auto</meta>
     <meta property="rendition:layout">pre-paginated</meta>
-    <meta property="dcterms:modified"></meta></metadata>
   <manifest></manifest>
   <spine page-progression-direction="rtl"></spine>
 </package>

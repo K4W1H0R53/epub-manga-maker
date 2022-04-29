@@ -85,9 +85,10 @@ class Metadate:
         return (metadate_list)
 
 
-path_image = os.walk("./temp/OEBPS/Images")
+
 
 def gene_xhtml(title):
+    path_image = os.walk("./temp/OEBPS/Images")
     filename_list = []
     extension_list = []
     for path, dir_list, file_list in path_image:
@@ -161,7 +162,6 @@ def gene_opf(metadate_list,manifest_list,spine_list):
         y = time.strftime("%Y-%m-%d"+"T"+"%H:%M:%S"+"Z",time.localtime())
         post_metadate = content.find('<meta property="dcterms:modified">')
         content = content[:post_metadate] + "\r    " + y + content[post_metadate:]
-
         for a in metadate_list:
             post_metadate = content.find('<meta property="rendition:spread">auto</meta>')
             content = content[:post_metadate] + "\r    " + a + content[post_metadate:]
