@@ -336,20 +336,25 @@ m_list.append(description_field)
 language_field = '''<dc:language>{0}</dc:language>\n'''.format('zh-TW')
 m_list.append(language_field)
 
-source_field = '''<dc:source>{0}</dc:source>\n'''.format(meta[12])
-m_list.append(source_field)
-
-contributor_field = '''<dc:contributor>{0}</dc:contributor>\n'''.format(meta[11])
-m_list.append(contributor_field)
-
-if not (meta[6] is None):
-    print('本书不属于任何系列')
-    pass
+if meta[12]:
+    source_field = '''<dc:source>{0}</dc:source>\n'''.format(meta[12])
+    m_list.append(source_field)
 else:
+    pass
+
+if meta[11]:
+    contributor_field = '''<dc:contributor>{0}</dc:contributor>\n'''.format(meta[11])
+    m_list.append(contributor_field)
+else:
+    pass
+
+if meta[6]:
     series_field = '''<meta name="calibre:series" content={0}/>\n'''.format(meta[6])
     m_list.append(series_field)
     series_id_field = '''<meta name="calibre:series_index" content={0}/>\n'''.format(meta[7])
     m_list.append(series_id_field)
+else:
+    print('本书不属于任何系列')
 
 t = input("输入图源类型(1.扫图; 2.Bookwalker; 3.DLsite; 4.KOBO; 5.PUBU):")
 if t == "1":
@@ -407,7 +412,7 @@ for c in s_list:
     post_spine = content.find('</spine>')
     content = content[:post_spine] + "\r    " + c + content[post_spine:]
 
-file = open("./test.opf",mode="w",encoding="utf-8")
+file = open("./temp/OEBPS/manga.opf",mode="w",encoding="utf-8")
 file.write(content)
 file.close()
 
@@ -559,10 +564,18 @@ for x in total:
     if not x[0]:
         pass
     else:
-        landmarks_element = '''<li><a epub:type="{0}" href="Text/{1}.xhtml">{2}</a></li>'''.format(x[0],x[1],x[2])
+        if x[0] == 'cover' or x[0] == 'toc' or x[0] == 'colophon':
+            landmarks_element = '''<li><a epub:type="{0}" href="Text/{1}.xhtml">{2}</a></li>'''.format(x[0],x[1],x[2])
+        if x[0] == 'bodymatter':
+            landmarks_element = '''<li><a epub:type="{0}" href="Text/{1}.xhtml">正文</a></li>'''.format(x[0],x[1])
         landmarks_list.append(landmarks_element)
-    toc_element = '''<li><a href="Text/{0}.xhtml">{1}</a></li>'''.format(x[1],x[2])
-    toc_list.append(toc_element)
+    if x[0] == 'cover':
+        pass
+    if x[0] == 'toc':
+        toc_file = './temp/OEBPS/Text/'+x[1]+'.xhtml'
+    else:
+        toc_element = '''<li><a href="Text/{0}.xhtml">{1}</a></li>'''.format(x[1],x[2])
+        toc_list.append(toc_element)
 
 f=open("./templates/nav_templates.xhtml",mode="r",encoding="utf-8")
 f = f.read().format(meta[4])
@@ -576,6 +589,16 @@ for b in landmarks_list:
 file = open("./temp/OEBPS/nav.xhtml",mode="w",encoding="utf-8")
 file.write(f)
 file.close()
+
+f = open(toc_file,'r',encoding='utf-8')
+f = f.read()
+for i in location_list:
+    post = f.find('</svg>')
+    f = f[:post]+"\r          " +i+f[post:]
+file = open(toc_file,'w',encoding='utf-8')
+file.write(f)
+file.close()
+
 ##########################################################################################################################################
 input("打包epub")
 ##########################################################################################################################################
