@@ -147,13 +147,15 @@ tags_dict = {
     'old man':'老男人',
     'filming':'摄像',
     'hotpants':'热裤',
-    'leg lock':'勾腿'
+    'leg lock':'勾腿',
+    'shibari':'捆绑',
+    '':'',
     }
 
 def gene_metadata(identifier,database=None):
     if database:
         url = database
-        metadata = pd.read_csv(url,sep=",",index_col='FD_ID',keep_default_na=False)
+        metadata = pd.read_csv(url,sep=",",index_col='ID',keep_default_na=False)
         metadata = metadata.loc[identifier]
         publisher = metadata[4]
         print('出版社:',publisher)
