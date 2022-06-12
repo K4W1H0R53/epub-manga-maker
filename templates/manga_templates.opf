@@ -3,6 +3,7 @@
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
     <meta property="rendition:spread">auto</meta>
     <meta property="rendition:layout">pre-paginated</meta>
+  </metadata>
   <manifest></manifest>
   <spine page-progression-direction="rtl"></spine>
 </package>
