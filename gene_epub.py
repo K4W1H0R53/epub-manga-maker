@@ -607,7 +607,7 @@ input("打包epub")
 import zipfile,pathlib
 dict = pathlib.Path("./temp")
 # with zipfile.ZipFile("./library/["+identifier+"]","["+author+"]",+title,"["+source+"]","["+contributor+"]"".epub","a",zipfile.ZIP_STORED) as archive:
-with zipfile.ZipFile("./library/test.epub","w",zipfile.ZIP_STORED) as archive:
+with zipfile.ZipFile("./test.epub","w",zipfile.ZIP_STORED) as archive:
     archive.writestr("mimetype", "application/epub+zip")
     for file_path in dict.rglob("*"):
         archive.write(file_path, arcname=file_path.relative_to(dict))
